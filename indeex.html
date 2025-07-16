@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Palo de Caucho</title>
+  <style>
+    :root {
+      --verde: #2e7d32;
+      --fondo: #f1f8e9;
+      --blanco: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--fondo);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .contenedor {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--verde);
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .bloque {
+      background-color: var(--blanco);
+      padding: 18px 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transform: translateY(30px);
+      opacity: 0;
+      transition: 0.6s ease;
+    }
+
+    .bloque.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #558b2f;
+    }
+
+    p {
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Palo de Caucho</h1>
+    <img src="palo-caucho.jpg" alt="Palo de Caucho">
+
+    <div class="bloque">
+      <h2>Nombre científico:</h2>
+      <p><em>Ficus elastica</em></p>
+    </div>
+
+    <div class="bloque">
+      <h2>Características:</h2>
+      <p>Árbol perenne de hojas grandes y brillantes, que puede alcanzar más de 30 metros. Su savia blanca contiene látex.</p>
+    </div>
+
+    <div class="bloque">
+      <h2>Cuidados:</h2>
+      <p>Prefiere luz indirecta, riego moderado y suelos con buen drenaje. Es resistente como planta de interior o exterior.</p>
+    </div>
+
+    <div class="bloque">
+      <h2>Usos:</h2>
+      <p>Muy utilizado como planta ornamental. También se usó como fuente alternativa de caucho antes del uso comercial del hevea.</p>
+    </div>
+  </div>
+
+  <script>
+    // Animación al hacer scroll
+    const bloques = document.querySelectorAll('.bloque');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    bloques.forEach(bloque => observer.observe(bloque));
+  </script>
+</body>
+</html>
